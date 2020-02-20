@@ -1,0 +1,9 @@
+README.md
+setup.py
+apisix/__init__.py
+apisix/apisix.py
+apisix.egg-info/PKG-INFO
+apisix.egg-info/SOURCES.txt
+apisix.egg-info/dependency_links.txt
+apisix.egg-info/requires.txt
+apisix.egg-info/top_level.txt

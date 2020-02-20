@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: apisix
+Version: 1.0
+Summary: Apache APISIX SDK for Python
+Home-page: UNKNOWN
+Author: Ming Wen
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: apisix,python,sdk
+Platform: Platform Independent
+Classifier: Development Status :: 1 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
