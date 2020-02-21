@@ -93,6 +93,32 @@ class TestAPISIX(unittest.TestCase):
         self.assertEqual(data['value']['nodes']['127.0.0.1:8000'], 1)
         self.assertEqual(data['value']['nodes']['foo.com:80'], 1)
 
+        ok = self.client.update_upstream(upstream_id = upstream_id,
+                                         type = 'chash',
+                                         key = 'remote_addr',
+                                         nodes = {"127.0.0.1:8000": 1, "foo.com:80": 1},
+                                         checks = {
+                                             "active": {
+                                                 "http_path": "/status",
+                                                 "host": "foo.com",
+                                                 "healthy": {
+                                                     "interval": 2,
+                                                     "successes": 1
+                                                 },
+                                                 "unhealthy": {
+                                                     "interval": 1,
+                                                     "http_failures": 2
+                                                 }
+                                             }
+                                         })
+        self.assertTrue(ok)
+
+        data = self.client.get_upstream(upstream_id)
+        self.assertEqual(data['value']['type'], 'chash')
+        self.assertEqual(data['value']['nodes']['127.0.0.1:8000'], 1)
+        self.assertEqual(data['value']['nodes']['foo.com:80'], 1)
+        self.assertEqual(data['value']['checks']['active']['http_path'], '/status')
+
         ok = self.client.del_upstream(upstream_id)
         self.assertTrue(ok)
 
